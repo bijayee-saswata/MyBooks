@@ -5,21 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_marginVertical="150dp"
     android:layout_gravity="center"
     tools:context="com.example.bg.mybooks.MainActivity">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center">
 
         <com.google.android.gms.common.SignInButton
-            android:id="@+id/g_sign_in"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content" />
+            android:id="@+id/googleBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </com.google.android.gms.common.SignInButton>
 
-    </LinearLayout>
 
 
 
