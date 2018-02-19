@@ -33,7 +33,17 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
         />
-    </LinearLayout>
 
+    </LinearLayout>
+    <Button
+        android:id="@+id/toLoginBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/screen"
+        android:layout_centerHorizontal="true"
+        android:text="get started!.."
+        android:visibility="invisible"
+        />
 </RelativeLayout>

@@ -5,7 +5,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
+import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
@@ -16,6 +19,8 @@ public class onBoardActivity extends AppCompatActivity {
     private LinearLayout mDotLayout;
     private slider sliderAdapter;
     private TextView[] mDots;
+    private Button mbtn;
+    private int mcurrent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +28,8 @@ public class onBoardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_on_board);
 
         mSlideViewPager=(ViewPager)findViewById(R.id.screen);
-        mDotLayout=(LinearLayout)findViewById(R.id.dots);
-
+        mDotLayout=(LinearLayout) findViewById(R.id.dots);
+        mbtn=(Button)findViewById(R.id.toLoginBtn);
         sliderAdapter= new slider(this);
         mSlideViewPager.setAdapter(sliderAdapter);
 
@@ -58,6 +63,12 @@ public class onBoardActivity extends AppCompatActivity {
         @Override
         public void onPageSelected(int i) {
             addDotsIndicator(i);
+            mcurrent=i;
+            if (mcurrent==2)
+            {
+                mbtn.setEnabled(true);
+                mbtn.setVisibility(View.VISIBLE);
+            }
         }
 
         @Override
