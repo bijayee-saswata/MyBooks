@@ -33,37 +33,28 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 public class MainActivity extends AppCompatActivity  {
     private SignInButton mGoogleBtn;
-    private Button phnButton;
     private static final int RC_SIGN_IN=1;
     private GoogleApiClient mGoogleApiClient;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG="MAIN_ACTIVITY";
-    private ProgressDialog mDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mDialog=new ProgressDialog(MainActivity.this);
+
         mAuth=FirebaseAuth.getInstance();
         mAuthListener=new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                mDialog.dismiss();
                 if (firebaseAuth.getCurrentUser()!=null)
                 {
-
                     startActivity(new Intent(MainActivity.this,navActivity.class));
                 }
             }
         };
-
-        phnButton=(Button) findViewById(R.id.phlogin);
-
         mGoogleBtn =(SignInButton)findViewById(R.id.googleBtn);
-        mGoogleBtn.setSize(SignInButton.SIZE_WIDE);
-        mGoogleBtn.setColorScheme(SignInButton.COLOR_DARK);
 
         // Configure Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -84,15 +75,7 @@ public class MainActivity extends AppCompatActivity  {
         mGoogleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mDialog.setMessage(" Loading .... ");
-                mDialog.show();
                 signIn();
-            }
-        });
-        phnButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),PhoneLogin.class));
             }
         });
     }
@@ -100,23 +83,16 @@ public class MainActivity extends AppCompatActivity  {
     @Override
     protected void onStart() {
         super.onStart();
-        mDialog.setMessage(" Loading .... ");
-        mDialog.show();
         mAuth.addAuthStateListener(mAuthListener);
     }
 
     private void signIn() {
-        mDialog.dismiss();
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
-
-
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-       mDialog.setMessage(" Signing In ..... ");
-       mDialog.show();
         super.onActivityResult(requestCode, resultCode, data);
 
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
@@ -127,7 +103,6 @@ public class MainActivity extends AppCompatActivity  {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuthWithGoogle(account);
             } catch (ApiException e) {
-                mDialog.dismiss();
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e);
                 // ...
