@@ -1,5 +1,6 @@
 package com.example.bg.mybooks;
 
+import android.app.ProgressDialog;
 import android.content.ClipData;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -25,11 +26,13 @@ public class navActivity extends AppCompatActivity {
     private Button logoutBtn;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private ProgressDialog mDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nav);
+
 
         mDrawerLayout=(DrawerLayout) findViewById(R.id.drawerLayout);
         mToggle=new ActionBarDrawerToggle(this,mDrawerLayout,R.string.open,R.string.close);

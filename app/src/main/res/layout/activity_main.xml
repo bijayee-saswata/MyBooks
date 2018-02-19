@@ -5,15 +5,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_gravity="center"
-    tools:context="com.example.bg.mybooks.MainActivity">
+    tools:context="com.example.bg.mybooks.MainActivity"
 
+    android:layout_marginVertical="150dp">
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginBottom="15dp"
+    android:orientation="vertical">
 
         <com.google.android.gms.common.SignInButton
             android:id="@+id/googleBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-        </com.google.android.gms.common.SignInButton>
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"></com.google.android.gms.common.SignInButton>
+
+
+</LinearLayout>
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginTop="15dp">
+
+        <Button
+            android:id="@+id/phlogin"
+            android:layout_width="260dp"
+            android:layout_height="match_parent"
+            android:background="@color/col1"
+            android:drawableLeft="@drawable/call_icon"
+            android:paddingHorizontal="10dp"
+            android:textColor="@color/col2"
+            android:text="@string/phn" />
+</LinearLayout>
 
 
 
