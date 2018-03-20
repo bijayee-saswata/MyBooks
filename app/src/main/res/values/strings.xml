@@ -12,4 +12,39 @@
     <string name="phlog4">Send Verification Code</string>
     <string name="phlog5">+91</string>
     <string name="phlog6">Verify Your Phone</string>
+
+    <string name="selectBranch">Select Branch</string>
+    <string-array name="branchs">
+        <item>CHEMICAL</item>
+        <item>CIVIL</item>
+        <item>CSE</item>
+        <item>EE</item>
+        <item>EEE</item>
+        <item>ETC</item>
+        <item>IT</item>
+        <item>ME</item>
+        <item>MME</item>
+        <item>PE</item>
+    </string-array>
+
+    <string name="selectSem">Select Semester</string>
+    <string-array name="sems">
+        <item>1 st</item>
+        <item>2 nd</item>
+        <item>3 rd</item>
+        <item>4 th</item>
+        <item>5 th</item>
+        <item>6 th</item>
+        <item>7 th</item>
+        <item>8 th</item>
+    </string-array>
+
+    <string name="selectSubject">Select Subject</string>
+    <string-array name="sub4">
+        <item>COA</item>
+        <item>DAA</item>
+        <item>DBS</item>
+        <item>OB</item>
+        <item>TOC</item>
+    </string-array>
 </resources>

@@ -1,47 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RelativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.example.bg.mybooks.MainActivity"
+    android:background="@drawable/main_bg"
+    tools:context="com.example.bg.mybooks.onBoardActivity">
 
-    android:layout_marginVertical="150dp">
+        <android.support.v4.view.ViewPager
+            android:id="@+id/screen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="60dp">
 
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:layout_marginBottom="15dp"
-    android:orientation="vertical">
+        </android.support.v4.view.ViewPager>
 
-        <com.google.android.gms.common.SignInButton
-            android:id="@+id/googleBtn"
-            android:layout_width="260dp"
-            android:layout_height="wrap_content"></com.google.android.gms.common.SignInButton>
+        <LinearLayout
+            android:id="@+id/dots"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="false"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentStart="false"
+            android:layout_centerHorizontal="true"
+            android:baselineAligned="true"
+            android:orientation="horizontal"
+            android:layout_alignBottom="@+id/screen">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    />
 
-</LinearLayout>
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:layout_marginTop="15dp">
-
+        </LinearLayout>
         <Button
-            android:id="@+id/phlogin"
-            android:layout_width="260dp"
-            android:layout_height="match_parent"
-            android:background="@color/col1"
-            android:drawableLeft="@drawable/call_icon"
-            android:paddingHorizontal="10dp"
-            android:textColor="@color/col2"
-            android:text="@string/phn" />
-</LinearLayout>
-
-
-
-
-
-</LinearLayout>
+            android:id="@+id/toLoginBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/screen"
+            android:layout_centerHorizontal="true"
+            android:text="get started!.."
+            android:visibility="invisible"
+            />
+</RelativeLayout>
